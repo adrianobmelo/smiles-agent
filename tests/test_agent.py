@@ -27,7 +27,7 @@ FEED = """<?xml version="1.0" encoding="UTF-8"?>
   <title>5 sugestões de voos em Classe Executiva a partir de 61 mil milhas Smiles</title>
   <link>https://passageirodeprimeira.com/executiva-smiles/</link>
   <pubDate>Wed, 23 Sep 2026 10:00:00 +0000</pubDate>
-  <content:encoded><![CDATA[<p>São Paulo (GRU) x Buenos Aires (EZE) por 66.500 milhas e taxas.</p>]]></content:encoded>
+  <content:encoded><![CDATA[<p>São Paulo (GRU) x Buenos Aires (EZE) por 66.500 milhas e taxas. Válida até amanhã.</p>]]></content:encoded>
 </item>
 <item>
   <title>LATAM tem passagens nacionais a partir de R$ 117 ou 4.737 milhas</title>
@@ -131,7 +131,7 @@ def test_parse_feed():
     assert nordeste["milhas"] == 8000 and nordeste["validade"] == "25/09/2026"
     assert [(r["origem"], r["destino"], r["milhas"]) for r in nordeste["rotas"]] == [
         ("GRU", "REC", 8500), ("GIG", "SSA", 9000)]
-    assert executiva["milhas"] == 61000
+    assert executiva["milhas"] == 61000 and executiva["validade"] == "24/09/2026"
     assert executiva["rotas"][0]["milhas"] == 66500
 
 

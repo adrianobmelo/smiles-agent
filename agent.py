@@ -192,12 +192,17 @@ def parse_feed(xml_text, hoje, dias):
         rotas = extrair_rotas(corpo)
         milhas_rotas = [r["milhas"] for r in rotas if r["milhas"]]
         m_validade = VALIDADE_RE.search(corpo)
+        validade = m_validade.group(1) if m_validade else None
+        # "hoje"/"amanhã" são relativos à data do post, não à data do alerta.
+        if validade and publicado and validade.lower() in ("hoje", "amanhã"):
+            dia = publicado + timedelta(days=1 if validade.lower() == "amanhã" else 0)
+            validade = dia.strftime("%d/%m/%Y")
         posts.append({
             "titulo": titulo,
             "link": (item.findtext("link") or "").strip(),
             "publicado": publicado.isoformat() if publicado else None,
             "milhas": milhas_para_int(m_titulo.group(1)) if m_titulo else (min(milhas_rotas) if milhas_rotas else None),
-            "validade": m_validade.group(1) if m_validade else None,
+            "validade": validade,
             "rotas": rotas,
         })
     return posts
