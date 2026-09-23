@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos em Classe Executiva a partir de 61 mil milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-09-23T07:05:30-03:00",
+    "milhas": 61000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-em-classe-executiva-a-partir-de-61-mil-milhas-smiles-2/",
+    "publicado": "2026-09-22",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Voe de São Paulo para Paris a partir de 100 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-09-23T07:05:30-03:00",
+    "milhas": 100000,
+    "link": "https://passageirodeprimeira.com/voe-para-paris-a-partir-de-100-mil-milhas-smiles-taxas-2/",
+    "publicado": "2026-09-22",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Confiram os e-mails! Smiles oferece cupom de 80% de desconto para compra de milhas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-09-23T07:05:30-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/confiram-os-e-mails-smiles-oferece-cupom-de-80-de-desconto-para-compra-de-milhas/",
+    "publicado": "2026-09-22",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 80% de bônus nas transferências de pontos do BB Empresas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "amanhã",
+    "data_coleta": "2026-09-23T07:05:30-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-80-de-bonus-nas-transferencias-de-pontos-do-bb-empresas/",
+    "publicado": "2026-09-21",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  }
+]
