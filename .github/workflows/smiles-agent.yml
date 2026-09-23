@@ -1,0 +1,49 @@
+name: Smiles Agent
+
+on:
+  schedule:
+    # 11:00 UTC = 08:00 em Brasília (sem horário de verão desde 2019)
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smiles-agent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Executar agente
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SMILES_API_KEY: ${{ secrets.SMILES_API_KEY }}
+        run: python agent.py
+
+      - name: Salvar histórico
+        run: |
+          if git diff --quiet -- historico.json; then
+            echo "Histórico sem alterações"
+            exit 0
+          fi
+          git config user.name "smiles-agent"
+          git config user.email "smiles-agent@users.noreply.github.com"
+          git add historico.json
+          git commit -m "smiles-agent: histórico $(TZ=America/Sao_Paulo date +%F)"
+          git push

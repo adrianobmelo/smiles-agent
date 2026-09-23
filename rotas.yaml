@@ -1,0 +1,27 @@
+# Configuração do SMILES_AGENT
+#
+# janela_dias: quantos dias à frente consultar a partir de hoje.
+# queda_percentual_promocao: queda mínima (%) em relação à média dos últimos
+#   14 dias para marcar uma tarifa como promoção.
+# consultas_por_rota: quantas datas consultar dentro da janela, espaçadas de
+#   forma uniforme. Mantém o número de requisições baixo.
+# rotas: origem/destino em código IATA, limite_milhas para o trecho de ida.
+#   ativa: false desliga a rota sem apagar.
+
+janela_dias: 60
+queda_percentual_promocao: 20
+consultas_por_rota: 6
+
+rotas:
+  - origem: GRU
+    destino: REC
+    limite_milhas: 15000
+    ativa: true
+  - origem: GRU
+    destino: LIS
+    limite_milhas: 60000
+    ativa: true
+  - origem: BSB
+    destino: SSA
+    limite_milhas: 10000
+    ativa: false
