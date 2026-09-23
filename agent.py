@@ -350,28 +350,71 @@ def ja_alertado(item, historico):
 # ---------------------------------------------------------------------------
 # 8. Mensagem
 # ---------------------------------------------------------------------------
-def formatar_linha(item):
-    if item.get("milhas") is not None:
-        valor = f"{item['milhas']:,}".replace(",", ".") + " milhas"
+def _milhas(valor):
+    return f"{valor:,}".replace(",", ".") + " milhas"
+
+
+def _data_br(texto):
+    """2026-10-03 vira 03/10/2026; outros formatos passam como vieram."""
+    try:
+        return date.fromisoformat(texto).strftime("%d/%m/%Y")
+    except (TypeError, ValueError):
+        return texto
+
+
+def eh_passagem(item):
+    """Post com milhas por trecho ou rota é oferta de voo; o resto é bônus/compra."""
+    return item.get("tipo") != "oficial" or bool(item.get("milhas") or item.get("rota"))
+
+
+def formatar_item(n, item):
+    """Bloco de um alerta: título com link, depois rota/milhas e validade/motivo."""
+    if item.get("tipo") == "oficial":
+        titulo = f"<b>{escape(item.get('titulo') or 'Promoção')}</b>"
     else:
-        valor = "milhas n/d"
-    quando = item.get("data_viagem") or item.get("validade") or "sem data"
-    partes = [escape(valor), escape(quando)]
+        titulo = "<b>Tarifa encontrada na Smiles</b>"
+    if item.get("link"):
+        titulo = f'<a href="{escape(item["link"])}">{titulo}</a>'
+    linhas = [f"{n}. {titulo}"]
+
+    detalhe = []
     if item.get("rota"):
         origem, destino = item["rota"].split("-", 1)
-        partes.insert(0, f"{escape(origem)} → {escape(destino)}")
-    if item.get("link"):
-        partes.append(f'<a href="{escape(item["link"])}">link</a>')
-    partes.append(f"motivo: {escape(item['motivo_alerta'])}")
-    linha = " | ".join(partes)
-    if item.get("tipo") == "oficial" and item.get("titulo"):
-        linha = f"<b>{escape(item['titulo'])}</b>\n{linha}"
-    return linha
+        detalhe.append(f"{escape(origem)} → {escape(destino)}")
+    if item.get("milhas") is not None:
+        detalhe.append(escape(_milhas(item["milhas"])))
+    if detalhe:
+        linhas.append(" · ".join(detalhe))
+
+    rodape = []
+    if item.get("data_viagem"):
+        rodape.append(f"ida {escape(_data_br(item['data_viagem']))}")
+    if item.get("validade"):
+        rodape.append(f"válida até {escape(_data_br(item['validade']))}")
+    # "promoção divulgada" vale para todo post do feed, então só aparece o que acrescenta.
+    motivos = [m for m in (item.get("motivo_alerta") or "").split(", ")
+               if m and m != "promoção divulgada"]
+    if motivos:
+        rodape.append(f"<i>{escape(', '.join(motivos))}</i>")
+    if rodape:
+        linhas.append(" · ".join(rodape))
+    return "\n".join(linhas)
 
 
 def montar_mensagem(alertas, hoje):
-    cabecalho = f"<b>Smiles Agent {hoje.strftime('%d/%m/%Y')}</b>"
-    return "\n".join([cabecalho, ""] + [formatar_linha(a) for a in alertas])
+    passagens = [a for a in alertas if eh_passagem(a)]
+    outros = [a for a in alertas if not eh_passagem(a)]
+    total = len(alertas)
+    blocos = [f"<b>Smiles Agent · {hoje.strftime('%d/%m/%Y')}</b>\n"
+              f"{total} {'novidade' if total == 1 else 'novidades'}"]
+    n = 0
+    for nome, itens in (("PASSAGENS", passagens), ("COMPRA E TRANSFERÊNCIA DE MILHAS", outros)):
+        for i, item in enumerate(itens):
+            n += 1
+            bloco = formatar_item(n, item)
+            blocos.append(f"<b>{nome}</b>\n{bloco}" if i == 0 else bloco)
+    blocos.append("<i>Fonte: Passageiro de Primeira</i>")
+    return "\n\n".join(blocos)
 
 
 # ---------------------------------------------------------------------------
@@ -429,7 +472,13 @@ def run(session=None, hoje=None, enviar=send_message):
         return enviar(texto, token=token, chat_id=chat_id)
 
     if TESTE_TELEGRAM:
-        ok = notificar("Smiles Agent: mensagem de teste. Se você está lendo isto, o envio funciona.")
+        # Reenvia os últimos alertas do histórico no layout atual, como prévia.
+        amostra = [h for h in load_historico() if h.get("alerta_enviado")][-6:]
+        if amostra:
+            texto = "<i>Prévia de teste com alertas já enviados</i>\n\n" + montar_mensagem(amostra, hoje)
+        else:
+            texto = "Smiles Agent: mensagem de teste. Se você está lendo isto, o envio funciona."
+        ok = notificar(texto)
         log.info("Teste de envio ao Telegram: %s", "ok" if ok else "falhou")
 
     # 2

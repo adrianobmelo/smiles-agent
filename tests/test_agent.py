@@ -151,12 +151,24 @@ def test_avaliacao_motivos():
 def test_escape_html():
     item = {"tipo": "tarifa", "rota": "GRU-REC", "milhas": 9000, "data_viagem": "2026-10-01",
             "link": 'https://x.com/?a=1&b="2"', "motivo_alerta": "abaixo <limite>"}
-    linha = agent.formatar_linha(item)
-    assert "&amp;b=&quot;2&quot;" in linha and "abaixo &lt;limite&gt;" in linha
-    assert linha.startswith("GRU → REC | 9.000 milhas | 2026-10-01 | <a href=")
-    sem_rota = agent.formatar_linha({"tipo": "oficial", "titulo": "A & B", "milhas": None,
-                                     "link": "https://x", "motivo_alerta": "promoção divulgada"})
-    assert sem_rota == '<b>A &amp; B</b>\nmilhas n/d | sem data | <a href="https://x">link</a> | motivo: promoção divulgada'
+    bloco = agent.formatar_item(1, item)
+    assert "&amp;b=&quot;2&quot;" in bloco and "abaixo &lt;limite&gt;" in bloco
+    assert bloco.split("\n")[1:] == ["GRU → REC · 9.000 milhas", "ida 01/10/2026 · <i>abaixo &lt;limite&gt;</i>"]
+
+
+def test_layout_mensagem():
+    alertas = [
+        {"tipo": "oficial", "titulo": "Paris & Cia", "milhas": 100000, "link": "https://a",
+         "validade": "24/09/2026", "motivo_alerta": "promoção divulgada"},
+        {"tipo": "oficial", "titulo": "Bônus BB", "milhas": None, "link": "https://b",
+         "motivo_alerta": "promoção divulgada"},
+    ]
+    msg = agent.montar_mensagem(alertas, HOJE)
+    assert msg.startswith("<b>Smiles Agent · 23/09/2026</b>\n2 novidades")
+    assert msg.index("PASSAGENS") < msg.index("Paris &amp; Cia") < msg.index("COMPRA E TRANSFERÊNCIA") < msg.index("Bônus BB")
+    assert '1. <a href="https://a"><b>Paris &amp; Cia</b></a>\n100.000 milhas\nválida até 24/09/2026' in msg
+    assert '2. <a href="https://b"><b>Bônus BB</b></a>\n' in msg
+    assert "promoção divulgada" not in msg and "n/d" not in msg and "sem data" not in msg
 
 
 def test_tudo_fora_do_ar(ambiente):
@@ -178,8 +190,7 @@ def test_fluxo_completo_e_sem_repeticao(ambiente):
     r1 = agent.run(sessao, HOJE, enviar)
     assert len(enviados) == 1
     msg = enviados[0]
-    assert "promoção divulgada, rota monitorada, abaixo limite" in msg
-    assert "GRU → REC | 8.500 milhas | 25/09/2026" in msg
+    assert "GRU → REC · 8.500 milhas\nválida até 25/09/2026 · <i>rota monitorada, abaixo limite</i>" in msg
     assert "61.000 milhas" in msg and "LIS" not in msg and "LATAM" not in msg
     assert r1["alertas_enviados"] == 2 + 3  # 2 posts Smiles + 3 datas GRU-REC
     assert r1["rotas_com_falha"] == []

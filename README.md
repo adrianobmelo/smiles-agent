@@ -74,7 +74,7 @@ python -m pytest tests   # precisa de pytest
 ## Execução manual
 
 Em Actions → Smiles Agent → Run workflow há duas opções: `teste_telegram`
-manda uma mensagem de teste e `debug` escreve no log os posts lidos do feed e
+reenvia os últimos alertas do histórico como prévia do layout e `debug` escreve no log os posts lidos do feed e
 o corpo das respostas de erro da busca.
 
 ## Limitações conhecidas
