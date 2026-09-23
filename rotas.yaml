@@ -4,13 +4,18 @@
 # queda_percentual_promocao: queda mínima (%) em relação à média dos últimos
 #   14 dias para marcar uma tarifa como promoção.
 # consultas_por_rota: quantas datas consultar dentro da janela, espaçadas de
-#   forma uniforme. Mantém o número de requisições baixo.
+#   forma uniforme. Só vale se SMILES_API_KEY estiver configurada; sem ela a
+#   busca direta na Smiles fica desligada.
+# promocoes_dias: idade máxima, em dias, dos posts do feed de promoções.
+# rotas também servem para o feed: se um post cita uma rota da lista, a linha
+#   do alerta mostra essa rota e marca "abaixo limite" quando for o caso.
 # rotas: origem/destino em código IATA, limite_milhas para o trecho de ida.
 #   ativa: false desliga a rota sem apagar.
 
 janela_dias: 60
 queda_percentual_promocao: 20
 consultas_por_rota: 6
+promocoes_dias: 3
 
 rotas:
   - origem: GRU

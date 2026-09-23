@@ -13,13 +13,39 @@ import telegram_send  # noqa: E402
 
 HOJE = date(2026, 9, 23)
 
-PROMO_HTML = """
-<html><body>
-  <a href="/promocao/nordeste"><h3>Nordeste em oferta</h3>
-     <p>GRU - REC a partir de 8.500 milhas, válida até 30/09/2026</p></a>
-  <a href="/institucional">Sobre a Smiles</a>
-</body></html>
-"""
+FEED = """<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel>
+<item>
+  <title>Smiles tem passagens para o Nordeste a partir de 8 mil milhas</title>
+  <link>https://passageirodeprimeira.com/smiles-nordeste/</link>
+  <pubDate>Tue, 22 Sep 2026 14:00:00 +0000</pubDate>
+  <category>Smiles</category>
+  <content:encoded><![CDATA[<p>São Paulo (GRU) x Recife (REC) por 8.500 milhas + taxas.</p>
+  <p>Rio (GIG) x Salvador (SSA) por 9.000 milhas. A promoção é válida até 25/09/2026.</p>]]></content:encoded>
+</item>
+<item>
+  <title>5 sugestões de voos em Classe Executiva a partir de 61 mil milhas Smiles</title>
+  <link>https://passageirodeprimeira.com/executiva-smiles/</link>
+  <pubDate>Wed, 23 Sep 2026 10:00:00 +0000</pubDate>
+  <content:encoded><![CDATA[<p>São Paulo (GRU) x Buenos Aires (EZE) por 66.500 milhas e taxas.</p>]]></content:encoded>
+</item>
+<item>
+  <title>LATAM tem passagens nacionais a partir de R$ 117 ou 4.737 milhas</title>
+  <link>https://passageirodeprimeira.com/latam/</link>
+  <pubDate>Wed, 23 Sep 2026 09:00:00 +0000</pubDate>
+  <category>LATAM Pass</category>
+</item>
+<item>
+  <title>Turkish Miles&amp;Smiles tem executiva barata</title>
+  <link>https://passageirodeprimeira.com/turkish/</link>
+  <pubDate>Wed, 23 Sep 2026 09:00:00 +0000</pubDate>
+</item>
+<item>
+  <title>Smiles antiga promoção de 2025</title>
+  <link>https://passageirodeprimeira.com/velha/</link>
+  <pubDate>Mon, 01 Sep 2025 09:00:00 +0000</pubDate>
+</item>
+</channel></rss>"""
 
 
 def voo(milhas):
@@ -29,6 +55,7 @@ def voo(milhas):
 class FakeResp:
     def __init__(self, status=200, text="", payload=None, url=""):
         self.status_code, self.text, self._payload, self.url = status, text, payload, url
+        self.content = text.encode("utf-8")
         self.headers = {"content-type": "application/json"}
 
     def raise_for_status(self):
@@ -57,8 +84,8 @@ class FakeSession:
             raise requests.ConnectionError("down")
         if url == agent.SMILES_HOME:
             return FakeResp(200)
-        if url == agent.PROMO_URL:
-            return FakeResp(200 if self.promo else 403, PROMO_HTML, url=url)
+        if url == agent.PROMO_FEED_URL:
+            return FakeResp(200 if self.promo else 403, FEED, url=url)
         if url == agent.SEARCH_URL:
             self.search_calls += 1
             rota = f"{params['originAirportCode']}-{params['destinationAirportCode']}"
@@ -87,6 +114,7 @@ def ambiente(tmp_path, monkeypatch):
     monkeypatch.setattr(agent.salvar_historico, "__defaults__", (hist,))
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "t")
     monkeypatch.setenv("TELEGRAM_CHAT_ID", "c")
+    monkeypatch.setattr(agent, "SMILES_API_KEY", "chave-teste")
     enviados = []
 
     def enviar(texto, token=None, chat_id=None):
@@ -96,12 +124,21 @@ def ambiente(tmp_path, monkeypatch):
     return hist, enviados, enviar
 
 
-def test_parse_promocoes():
-    promos = agent.parse_promocoes(PROMO_HTML, "https://www.smiles.com.br/promocoes")
-    assert len(promos) == 1
-    p = promos[0]
-    assert (p["origem"], p["destino"], p["milhas"], p["validade"]) == ("GRU", "REC", 8500, "30/09/2026")
-    assert p["link"] == "https://www.smiles.com.br/promocao/nordeste"
+def test_parse_feed():
+    posts = agent.parse_feed(FEED.encode(), HOJE, 3)
+    assert [p["link"].rsplit("/", 2)[1] for p in posts] == ["smiles-nordeste", "executiva-smiles"]
+    nordeste, executiva = posts
+    assert nordeste["milhas"] == 8000 and nordeste["validade"] == "25/09/2026"
+    assert [(r["origem"], r["destino"], r["milhas"]) for r in nordeste["rotas"]] == [
+        ("GRU", "REC", 8500), ("GIG", "SSA", 9000)]
+    assert executiva["milhas"] == 61000
+    assert executiva["rotas"][0]["milhas"] == 66500
+
+
+def test_milhas_para_int():
+    assert agent.milhas_para_int("61 mil") == 61000
+    assert agent.milhas_para_int("7,5 mil") == 7500
+    assert agent.milhas_para_int("66.500") == 66500
 
 
 def test_avaliacao_motivos():
@@ -117,6 +154,9 @@ def test_escape_html():
     linha = agent.formatar_linha(item)
     assert "&amp;b=&quot;2&quot;" in linha and "abaixo &lt;limite&gt;" in linha
     assert linha.startswith("GRU → REC | 9.000 milhas | 2026-10-01 | <a href=")
+    sem_rota = agent.formatar_linha({"tipo": "oficial", "titulo": "A & B", "milhas": None,
+                                     "link": "https://x", "motivo_alerta": "promoção divulgada"})
+    assert sem_rota == '<b>A &amp; B</b>\nmilhas n/d | sem data | <a href="https://x">link</a> | motivo: promoção divulgada'
 
 
 def test_tudo_fora_do_ar(ambiente):
@@ -138,13 +178,15 @@ def test_fluxo_completo_e_sem_repeticao(ambiente):
     r1 = agent.run(sessao, HOJE, enviar)
     assert len(enviados) == 1
     msg = enviados[0]
-    assert "promoção oficial" in msg and "abaixo limite" in msg and "LIS" not in msg
-    assert r1["alertas_enviados"] == 1 + 3  # oficial + 3 datas GRU-REC
+    assert "promoção divulgada, rota monitorada, abaixo limite" in msg
+    assert "GRU → REC | 8.500 milhas | 25/09/2026" in msg
+    assert "61.000 milhas" in msg and "LIS" not in msg and "LATAM" not in msg
+    assert r1["alertas_enviados"] == 2 + 3  # 2 posts Smiles + 3 datas GRU-REC
     assert r1["rotas_com_falha"] == []
 
     dados = json.loads(hist.read_text())
     assert any(h["tipo"] == "tarifa" and h["rota"] == "GRU-LIS" and not h["alerta_enviado"] for h in dados)
-    assert sum(1 for h in dados if h["alerta_enviado"]) == 4
+    assert sum(1 for h in dados if h["alerta_enviado"]) == 5
 
     # Mesmo cenário no dia seguinte: nada novo, nada enviado.
     agent.run(FakeSession(milhas={"GRU-REC": 12000, "GRU-LIS": 80000}), HOJE, enviar)
@@ -159,6 +201,15 @@ def test_queda_percentual(ambiente):
     hist.write_text(json.dumps(base))
     agent.run(FakeSession(promo=False, milhas={"GRU-LIS": 75000}), HOJE, enviar)
     assert len(enviados) == 1 and "queda &gt;20%" in enviados[0]
+
+
+def test_sem_chave_smiles_usa_so_feed(ambiente, monkeypatch):
+    hist, enviados, enviar = ambiente
+    monkeypatch.setattr(agent, "SMILES_API_KEY", "")
+    sessao = FakeSession(milhas={"GRU-REC": 12000})
+    r = agent.run(sessao, HOJE, enviar)
+    assert sessao.search_calls == 0 and r["rotas_consultadas"] == []
+    assert len(enviados) == 1 and r["alertas_enviados"] == 2
 
 
 def test_sem_credenciais_nao_envia(ambiente, monkeypatch):

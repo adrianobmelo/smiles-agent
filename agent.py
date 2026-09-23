@@ -14,7 +14,8 @@ import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from statistics import mean
-from urllib.parse import urljoin
+from email.utils import parsedate_to_datetime
+from xml.etree import ElementTree as ET
 
 import requests
 import yaml
@@ -29,7 +30,7 @@ HISTORICO_PATH = Path(os.environ.get("SMILES_HISTORICO", BASE_DIR / "historico.j
 BRT = timezone(timedelta(hours=-3))
 SMILES_HOME = "https://www.smiles.com.br"
 TELEGRAM_HOME = "https://api.telegram.org"
-PROMO_URL = os.environ.get("SMILES_PROMO_URL", "https://www.smiles.com.br/mfe/promocao")
+PROMO_FEED_URL = os.environ.get("SMILES_PROMO_FEED", "https://passageirodeprimeira.com/feed/")
 SEARCH_URL = os.environ.get(
     "SMILES_SEARCH_URL", "https://api-air-flightsearch-prd.smiles.com.br/v1/airlines/search"
 )
@@ -97,6 +98,7 @@ def load_config(path=ROTAS_PATH):
     cfg.setdefault("janela_dias", 30)
     cfg.setdefault("queda_percentual_promocao", 20)
     cfg.setdefault("consultas_por_rota", 5)
+    cfg.setdefault("promocoes_dias", 3)
     rotas = []
     for r in cfg.get("rotas") or []:
         if not r.get("ativa", True):
@@ -122,94 +124,98 @@ def load_historico(path=HISTORICO_PATH):
 
 
 # ---------------------------------------------------------------------------
-# 4. Promoções públicas
+# 4. Promoções públicas (feed do Passageiro de Primeira)
 # ---------------------------------------------------------------------------
+# A página de promoções da Smiles só carrega com JavaScript e a Akamai bloqueia
+# os servidores do GitHub, então as promoções vêm do feed RSS de um blog que
+# divulga ofertas. Só entram posts que citam a Smiles no título ou na categoria.
 IATA_PAIR = re.compile(r"\b([A-Z]{3})\s*(?:-|–|→|>|/|x|para)\s*([A-Z]{3})\b")
-MILHAS_RE = re.compile(r"(\d{1,3}(?:\.\d{3})+|\d{4,})\s*milhas", re.I)
-PRECO_RE = re.compile(r"R\$\s*(\d{1,3}(?:\.\d{3})*(?:,\d{2})?)")
+# "São Paulo (GRU) x Buenos Aires (EZE)"
+IATA_PAR_TEXTO = re.compile(r"\(([A-Z]{3})\)\s*(?:x|para|-|–|→|>|/|a)\s*[^()]{0,40}?\(([A-Z]{3})\)")
+MILHAS_RE = re.compile(r"(\d{1,3}(?:\.\d{3})+|\d{4,}|\d{1,3}(?:,\d+)?\s*mil)\s*milhas", re.I)
 VALIDADE_RE = re.compile(
-    r"(?:até|válid[ao]s?\s+até|validade:?)\s*(\d{1,2}/\d{1,2}(?:/\d{2,4})?)", re.I
+    r"(?:válid[ao]s?\s+até|vai\s+até|até)\s+(?:o\s+dia\s+|as\s+\d{1,2}h\s+do\s+dia\s+)?"
+    r"(\d{1,2}/\d{1,2}(?:/\d{2,4})?|\d{1,2}\s+de\s+[a-zç]+|hoje|amanhã)",
+    re.I,
 )
+SMILES_RE = re.compile(r"smiles", re.I)
+TURKISH_RE = re.compile(r"miles\s*&\s*smiles", re.I)
+NS_CONTENT = "{http://purl.org/rss/1.0/modules/content/}encoded"
 
 
-def _to_int(num):
-    return int(num.replace(".", "").split(",")[0])
+def milhas_para_int(texto):
+    texto = texto.strip().lower()
+    if texto.endswith("mil"):
+        return int(round(float(texto[:-3].strip().replace(",", ".")) * 1000))
+    return int(texto.replace(".", ""))
 
 
-def parse_promo_text(texto):
-    """Extrai rota, milhas/preço e validade de um trecho de texto."""
-    out = {"origem": None, "destino": None, "milhas": None, "preco": None, "validade": None}
-    m = IATA_PAIR.search(texto)
-    if m:
-        out["origem"], out["destino"] = m.group(1), m.group(2)
-    m = MILHAS_RE.search(texto)
-    if m:
-        out["milhas"] = _to_int(m.group(1))
-    m = PRECO_RE.search(texto)
-    if m:
-        out["preco"] = m.group(1)
-    m = VALIDADE_RE.search(texto)
-    if m:
-        out["validade"] = m.group(1)
-    return out
+def extrair_rotas(texto):
+    """Pares de aeroportos citados no texto, cada um com as milhas logo depois."""
+    rotas, vistas = [], set()
+    for regex in (IATA_PAR_TEXTO, IATA_PAIR):
+        for m in regex.finditer(texto):
+            par = (m.group(1), m.group(2))
+            if par in vistas or par[0] == par[1]:
+                continue
+            mm = MILHAS_RE.search(texto, m.end(), m.end() + 150)
+            vistas.add(par)
+            rotas.append({"origem": par[0], "destino": par[1],
+                          "milhas": milhas_para_int(mm.group(1)) if mm else None})
+    return rotas
 
 
-def parse_promocoes(html_text, base_url=PROMO_URL):
-    """Lê a página de promoções e devolve os cards que mencionam milhas ou preço."""
-    soup = BeautifulSoup(html_text, "html.parser")
-    promos, vistos = [], set()
+def eh_smiles(titulo, categorias):
+    alvo = " ".join([titulo] + categorias)
+    return bool(SMILES_RE.search(TURKISH_RE.sub("", alvo)))
 
-    # Cards costumam ser links com título e texto de oferta dentro.
-    for a in soup.find_all("a", href=True):
-        texto = " ".join(a.get_text(" ", strip=True).split())
-        if not texto or not (MILHAS_RE.search(texto) or PRECO_RE.search(texto)):
+
+def parse_feed(xml_text, hoje, dias):
+    """Lê o RSS e devolve os posts recentes sobre Smiles."""
+    root = ET.fromstring(xml_text)
+    limite = hoje - timedelta(days=dias)
+    posts = []
+    for item in root.iter("item"):
+        titulo = (item.findtext("title") or "").strip()
+        categorias = [c.text or "" for c in item.findall("category")]
+        if not eh_smiles(titulo, categorias):
             continue
-        link = urljoin(base_url, a["href"])
-        titulo_tag = a.find(["h1", "h2", "h3", "h4", "strong"])
-        titulo = titulo_tag.get_text(" ", strip=True) if titulo_tag else texto[:80]
-        chave = (titulo, link)
-        if chave in vistos:
+        try:
+            publicado = parsedate_to_datetime(item.findtext("pubDate") or "").astimezone(BRT).date()
+        except (TypeError, ValueError):
+            publicado = None
+        if publicado and publicado < limite:
             continue
-        vistos.add(chave)
-        promo = {"titulo": titulo, "link": link}
-        promo.update(parse_promo_text(texto))
-        promos.append(promo)
-    return promos
+        html_corpo = item.findtext(NS_CONTENT) or item.findtext("description") or ""
+        corpo = " ".join(BeautifulSoup(html_corpo, "html.parser").get_text(" ").split())
+        m_titulo = MILHAS_RE.search(titulo)
+        rotas = extrair_rotas(corpo)
+        milhas_rotas = [r["milhas"] for r in rotas if r["milhas"]]
+        m_validade = VALIDADE_RE.search(corpo)
+        posts.append({
+            "titulo": titulo,
+            "link": (item.findtext("link") or "").strip(),
+            "publicado": publicado.isoformat() if publicado else None,
+            "milhas": milhas_para_int(m_titulo.group(1)) if m_titulo else (min(milhas_rotas) if milhas_rotas else None),
+            "validade": m_validade.group(1) if m_validade else None,
+            "rotas": rotas,
+        })
+    return posts
 
 
-def coletar_promocoes(session):
+def coletar_promocoes(session, hoje, dias):
     try:
-        resp = session.get(PROMO_URL, timeout=TIMEOUT)
+        resp = session.get(PROMO_FEED_URL, timeout=TIMEOUT)
         resp.raise_for_status()
-    except requests.RequestException as exc:
-        log.warning("Página de promoções indisponível: %s", exc)
+        posts = parse_feed(resp.content, hoje, dias)
+    except (requests.RequestException, ET.ParseError) as exc:
+        log.warning("Feed de promoções indisponível: %s", exc)
         return None
-    promos = parse_promocoes(resp.text, resp.url or PROMO_URL)
-    log.info("Promoções públicas encontradas: %d", len(promos))
+    log.info("Promoções Smiles no feed (últimos %d dias): %d", dias, len(posts))
     if DEBUG:
-        diagnostico_pagina(resp)
-    return promos
-
-
-def diagnostico_pagina(resp):
-    """Resume a página de promoções no log para entender a estrutura real."""
-    texto = resp.text
-    soup = BeautifulSoup(texto, "html.parser")
-    log.info("DEBUG url final=%s status=%s tamanho=%d content-type=%s",
-             resp.url, resp.status_code, len(texto), resp.headers.get("content-type"))
-    log.info("DEBUG title=%r links=%d scripts=%d", soup.title.string if soup.title else None,
-             len(soup.find_all("a")), len(soup.find_all("script")))
-    for marcador in ("__NEXT_DATA__", "__NUXT__", "application/ld+json", "liferay", "milhas", "R$"):
-        log.info("DEBUG contém %r: %d vezes", marcador, texto.count(marcador))
-    for sc in soup.find_all("script", src=True)[:25]:
-        log.info("DEBUG script src=%s", sc["src"])
-    for m in list(re.finditer(r"https?://[^\s\"'<>]*(?:api|promo|offer|oferta)[^\s\"'<>]*", texto, re.I))[:25]:
-        log.info("DEBUG url citada=%s", m.group(0)[:200])
-    visivel = " ".join(soup.get_text(" ", strip=True).split())
-    log.info("DEBUG texto visível (1500 chars)=%s", visivel[:1500])
-    for m in list(MILHAS_RE.finditer(texto))[:10]:
-        ini = max(0, m.start() - 150)
-        log.info("DEBUG trecho milhas=%r", texto[ini:m.end() + 50])
+        for p in posts:
+            log.info("DEBUG post=%s", json.dumps(p, ensure_ascii=False))
+    return posts
 
 
 # ---------------------------------------------------------------------------
@@ -326,8 +332,9 @@ def avaliar_tarifa(tarifa, limite, media, queda_pct):
 # 7. Deduplicação
 # ---------------------------------------------------------------------------
 def chave_alerta(item):
-    return (item.get("tipo"), item.get("rota"), item.get("data_viagem") or item.get("validade"),
-            item.get("milhas"), item.get("preco"), item.get("titulo") if item.get("tipo") == "oficial" else None)
+    if item.get("tipo") == "oficial":
+        return ("oficial", item.get("link") or item.get("titulo"))
+    return (item.get("tipo"), item.get("rota"), item.get("data_viagem"), item.get("milhas"))
 
 
 def ja_alertado(item, historico):
@@ -339,15 +346,15 @@ def ja_alertado(item, historico):
 # 8. Mensagem
 # ---------------------------------------------------------------------------
 def formatar_linha(item):
-    origem, destino = (item.get("rota") or "?-?").split("-", 1)
     if item.get("milhas") is not None:
         valor = f"{item['milhas']:,}".replace(",", ".") + " milhas"
-    elif item.get("preco"):
-        valor = f"R$ {item['preco']}"
     else:
-        valor = "valor n/d"
+        valor = "milhas n/d"
     quando = item.get("data_viagem") or item.get("validade") or "sem data"
-    partes = [f"{escape(origem)} → {escape(destino)}", escape(valor), escape(quando)]
+    partes = [escape(valor), escape(quando)]
+    if item.get("rota"):
+        origem, destino = item["rota"].split("-", 1)
+        partes.insert(0, f"{escape(origem)} → {escape(destino)}")
     if item.get("link"):
         partes.append(f'<a href="{escape(item["link"])}">link</a>')
     partes.append(f"motivo: {escape(item['motivo_alerta'])}")
@@ -435,14 +442,16 @@ def run(session=None, hoje=None, enviar=send_message):
     queda = float(cfg["queda_percentual_promocao"])
 
     # 4
-    promos = coletar_promocoes(session)
+    promos = coletar_promocoes(session, hoje, int(cfg["promocoes_dias"]))
     promos_ok = promos is not None
     promos = promos or []
 
     # 5
     datas = datas_consulta(hoje, int(cfg["janela_dias"]), int(cfg["consultas_por_rota"]))
     tarifas, rotas_ok = [], 0
-    for rota in cfg["rotas"]:
+    if not SMILES_API_KEY:
+        log.info("Busca de tarifas desativada: SMILES_API_KEY não configurada")
+    for rota in cfg["rotas"] if SMILES_API_KEY else []:
         nome = f"{rota['origem']}-{rota['destino']}"
         encontradas, ok = consultar_rota(session, rota, datas)
         resumo["rotas_consultadas"].append(nome)
@@ -463,13 +472,23 @@ def run(session=None, hoje=None, enviar=send_message):
     # 6
     data_coleta = agora.isoformat(timespec="seconds")
     candidatos, observacoes = [], []
+    limites = {f"{r['origem']}-{r['destino']}": r["limite_milhas"] for r in cfg["rotas"]}
     for p in promos:
-        rota = f"{p['origem']}-{p['destino']}" if p.get("origem") else None
+        rota, milhas, motivos = None, p.get("milhas"), ["promoção divulgada"]
+        # Se o post cita uma rota monitorada, a linha mostra essa rota.
+        for r in p["rotas"]:
+            nome = f"{r['origem']}-{r['destino']}"
+            if nome in limites:
+                rota, milhas = nome, r["milhas"] or milhas
+                motivos.append("rota monitorada")
+                if r["milhas"] and r["milhas"] < limites[nome]:
+                    motivos.append("abaixo limite")
+                break
         candidatos.append({
-            "tipo": "oficial", "titulo": p.get("titulo"), "rota": rota,
+            "tipo": "oficial", "titulo": p["titulo"], "rota": rota,
             "data_viagem": None, "validade": p.get("validade"), "data_coleta": data_coleta,
-            "milhas": p.get("milhas"), "preco": p.get("preco"), "link": p.get("link"),
-            "motivo_alerta": "promoção oficial",
+            "milhas": milhas, "link": p["link"], "publicado": p.get("publicado"),
+            "motivo_alerta": ", ".join(motivos),
         })
     for t in tarifas:
         media = media_14_dias(historico, t["origem"], t["destino"], hoje)
