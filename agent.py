@@ -29,7 +29,7 @@ HISTORICO_PATH = Path(os.environ.get("SMILES_HISTORICO", BASE_DIR / "historico.j
 BRT = timezone(timedelta(hours=-3))
 SMILES_HOME = "https://www.smiles.com.br"
 TELEGRAM_HOME = "https://api.telegram.org"
-PROMO_URL = os.environ.get("SMILES_PROMO_URL", "https://www.smiles.com.br/promocoes")
+PROMO_URL = os.environ.get("SMILES_PROMO_URL", "https://www.smiles.com.br/mfe/promocao")
 SEARCH_URL = os.environ.get(
     "SMILES_SEARCH_URL", "https://api-air-flightsearch-prd.smiles.com.br/v1/airlines/search"
 )
