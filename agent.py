@@ -36,6 +36,10 @@ SEARCH_URL = os.environ.get(
 # A busca de voos da Smiles exige o header x-api-key usado pelo próprio site.
 # Sem ele a API responde 401/403 e a rota é registrada como falha.
 SMILES_API_KEY = os.environ.get("SMILES_API_KEY", "")
+# SMILES_DEBUG=1 escreve no log o que a Smiles devolveu, para ajustar o parser.
+DEBUG = os.environ.get("SMILES_DEBUG", "").lower() in ("1", "true", "yes")
+# SMILES_TESTE_TELEGRAM=1 manda uma mensagem de teste no início da execução.
+TESTE_TELEGRAM = os.environ.get("SMILES_TESTE_TELEGRAM", "").lower() in ("1", "true", "yes")
 
 JANELA_MEDIA_DIAS = 14
 TIMEOUT = 20
@@ -182,7 +186,30 @@ def coletar_promocoes(session):
         return None
     promos = parse_promocoes(resp.text, resp.url or PROMO_URL)
     log.info("Promoções públicas encontradas: %d", len(promos))
+    if DEBUG:
+        diagnostico_pagina(resp)
     return promos
+
+
+def diagnostico_pagina(resp):
+    """Resume a página de promoções no log para entender a estrutura real."""
+    texto = resp.text
+    soup = BeautifulSoup(texto, "html.parser")
+    log.info("DEBUG url final=%s status=%s tamanho=%d content-type=%s",
+             resp.url, resp.status_code, len(texto), resp.headers.get("content-type"))
+    log.info("DEBUG title=%r links=%d scripts=%d", soup.title.string if soup.title else None,
+             len(soup.find_all("a")), len(soup.find_all("script")))
+    for marcador in ("__NEXT_DATA__", "__NUXT__", "application/ld+json", "liferay", "milhas", "R$"):
+        log.info("DEBUG contém %r: %d vezes", marcador, texto.count(marcador))
+    for sc in soup.find_all("script", src=True)[:25]:
+        log.info("DEBUG script src=%s", sc["src"])
+    for m in list(re.finditer(r"https?://[^\s\"'<>]*(?:api|promo|offer|oferta)[^\s\"'<>]*", texto, re.I))[:25]:
+        log.info("DEBUG url citada=%s", m.group(0)[:200])
+    visivel = " ".join(soup.get_text(" ", strip=True).split())
+    log.info("DEBUG texto visível (1500 chars)=%s", visivel[:1500])
+    for m in list(MILHAS_RE.finditer(texto))[:10]:
+        ini = max(0, m.start() - 150)
+        log.info("DEBUG trecho milhas=%r", texto[ini:m.end() + 50])
 
 
 # ---------------------------------------------------------------------------
@@ -221,7 +248,14 @@ def consultar_rota(session, rota, datas):
     """Consulta a rota nas datas dadas. Retorna (tarifas, ok).
 
     ok é True se ao menos uma consulta respondeu, mesmo sem voos."""
-    headers = {"Accept": "application/json", "Origin": SMILES_HOME, "Referer": SMILES_HOME + "/"}
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Origin": SMILES_HOME,
+        "Referer": SMILES_HOME + "/",
+        "channel": "Web",
+        "region": "BRASIL",
+        "language": "pt-BR",
+    }
     if SMILES_API_KEY:
         headers["x-api-key"] = SMILES_API_KEY
     tarifas, falhas, respostas = [], 0, 0
@@ -241,6 +275,9 @@ def consultar_rota(session, rota, datas):
         except (requests.RequestException, ValueError) as exc:
             falhas += 1
             log.warning("%s-%s %s: falha na consulta (%s)", rota["origem"], rota["destino"], dia, exc)
+            corpo = getattr(getattr(exc, "response", None), "text", "") or ""
+            if DEBUG and corpo:
+                log.info("DEBUG resposta da busca=%r", corpo[:400])
             if falhas >= 2 and not respostas:
                 # Bloqueio provável: não insiste nas datas restantes.
                 break
@@ -378,6 +415,10 @@ def run(session=None, hoje=None, enviar=send_message):
             log.error("Mensagem não enviada (credenciais ausentes)")
             return False
         return enviar(texto, token=token, chat_id=chat_id)
+
+    if TESTE_TELEGRAM:
+        ok = notificar("Smiles Agent: mensagem de teste. Se você está lendo isto, o envio funciona.")
+        log.info("Teste de envio ao Telegram: %s", "ok" if ok else "falhou")
 
     # 2
     con = check_connectivity(session)

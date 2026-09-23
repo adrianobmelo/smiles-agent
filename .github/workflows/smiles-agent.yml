@@ -5,6 +5,15 @@ on:
     # 11:00 UTC = 08:00 em Brasília (sem horário de verão desde 2019)
     - cron: "0 11 * * *"
   workflow_dispatch:
+    inputs:
+      teste_telegram:
+        description: "Mandar mensagem de teste no Telegram"
+        type: boolean
+        default: false
+      debug:
+        description: "Escrever no log o que a Smiles devolveu"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -18,9 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: pip
@@ -34,6 +43,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SMILES_API_KEY: ${{ secrets.SMILES_API_KEY }}
+          SMILES_TESTE_TELEGRAM: ${{ inputs.teste_telegram }}
+          SMILES_DEBUG: ${{ inputs.debug }}
         run: python agent.py
 
       - name: Salvar histórico
