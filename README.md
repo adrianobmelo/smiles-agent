@@ -18,8 +18,9 @@ A busca direta de tarifas na Smiles continua no código, mas só roda se o
 secret `SMILES_API_KEY` existir. O Seats.aero (plano Pro, API paga) é a
 alternativa estudada para voltar a ter tarifas rota a rota.
 
-Roda pelo GitHub Actions (`.github/workflows/smiles-agent.yml`) todo dia às
-11:00 UTC, que corresponde a 08:00 em Brasília. Também dá pra disparar na mão
+Roda pelo GitHub Actions (`.github/workflows/smiles-agent.yml`) agendado para
+10:17 UTC, 07:17 em Brasília. O GitHub não garante o horário: em dias cheios
+o agendamento atrasa, e já houve atraso de mais de 4 horas. Também dá pra disparar na mão
 em Actions → Smiles Agent → Run workflow. O GitHub só executa agendamentos que
 estão no branch padrão do repositório, então o workflow precisa estar no
 `main` para o cron valer.

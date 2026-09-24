@@ -2,8 +2,11 @@ name: Smiles Agent
 
 on:
   schedule:
-    # 11:00 UTC = 08:00 em Brasília (sem horário de verão desde 2019)
-    - cron: "0 11 * * *"
+    # 10:17 UTC = 07:17 em Brasília (sem horário de verão desde 2019).
+    # O GitHub atrasa agendamentos em horários cheios (minuto 0) e já chegou a
+    # rodar este com 4h de atraso. Minuto quebrado e início mais cedo reduzem
+    # o atraso, mas não há garantia de horário exato.
+    - cron: "17 10 * * *"
   workflow_dispatch:
     inputs:
       teste_telegram:
