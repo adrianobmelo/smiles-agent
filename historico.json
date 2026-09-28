@@ -128,5 +128,31 @@
     "publicado": "2026-09-27",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Shopping Smiles oferece até 13 milhas por real em lojas parceiras",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "29/09/2026",
+    "data_coleta": "2026-09-28T15:10:17-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/shopping-smiles-oferece-ate-13-milhas-por-real-em-lojas-parceiras/",
+    "publicado": "2026-09-28",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Últimos dias! Banco do Brasil oferece cartão GOL Smiles com 1 ano de isenção de anuidade",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-09-28T15:10:17-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/ultimos-dias-banco-do-brasil-oferece-cartao-gol-smiles-com-1-ano-de-isencao-de-anuidade/",
+    "publicado": "2026-09-28",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
