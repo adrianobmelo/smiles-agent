@@ -154,5 +154,18 @@
     "publicado": "2026-09-28",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Oportunidade! Compre o iPhone 18 Pro e ganhe até 13 milhas Smiles por real gasto",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "29/09/2026",
+    "data_coleta": "2026-09-30T13:25:02-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/oportunidade-compre-o-iphone-18-pro-e-ganhe-ate-13-milhas-smiles-por-real-gasto/",
+    "publicado": "2026-09-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
