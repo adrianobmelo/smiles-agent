@@ -167,5 +167,44 @@
     "publicado": "2026-09-29",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Muito barato! Trecho para Miami a partir de 50 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-01T14:02:18-03:00",
+    "milhas": 50000,
+    "link": "https://passageirodeprimeira.com/muito-barato-trecho-para-miami-a-partir-de-50-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-01",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Últimas horas! Nomad oferece até 48 mil milhas Smiles para novas aberturas de contas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-01T14:02:18-03:00",
+    "milhas": 48000,
+    "link": "https://passageirodeprimeira.com/ultimas-horas-nomad-oferece-ate-48-mil-milhas-smiles-para-novas-aberturas-de-contas/",
+    "publicado": "2026-09-30",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Prorrogado! Shopping Smiles oferece até 13 milhas por real gasto no Magalu",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30/09/2026",
+    "data_coleta": "2026-10-01T14:02:18-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/prorrogado-shopping-smiles-oferece-ate-13-milhas-por-real-gasto-no-magalu/",
+    "publicado": "2026-09-30",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
