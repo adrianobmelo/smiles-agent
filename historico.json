@@ -206,5 +206,44 @@
     "publicado": "2026-09-30",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 300% de bônus na compra de milhas para assinantes do Clube",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-02T13:16:39-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-300-de-bonus-na-compra-de-milhas-para-assinantes-do-clube-6/",
+    "publicado": "2026-10-02",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece trechos em Cabine Executiva entre diversos destinos a partir de 20 mil milhas + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-02T13:16:39-03:00",
+    "milhas": 20000,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-trechos-em-executiva-para-diversos-destinos-a-partir-de-11-mil-milhas/",
+    "publicado": "2026-10-01",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Assine o Clube Smiles 2.000 e receba até 37 mil milhas em 1 ano",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-02T13:16:39-03:00",
+    "milhas": 37000,
+    "link": "https://passageirodeprimeira.com/assine-o-clube-smiles-2-000-e-receba-ate-37-mil-milhas-em-1-ano/",
+    "publicado": "2026-10-01",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
