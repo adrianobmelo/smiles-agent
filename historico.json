@@ -245,5 +245,31 @@
     "publicado": "2026-10-01",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos partir de 10.600 milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-03T11:43:32-03:00",
+    "milhas": 10600,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-partir-de-10-600-milhas-smiles/",
+    "publicado": "2026-10-03",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Voe para Santiago a partir de 33 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-03T11:43:32-03:00",
+    "milhas": 33000,
+    "link": "https://passageirodeprimeira.com/voe-para-santiago-a-partir-de-33-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-02",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
