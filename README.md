@@ -54,6 +54,9 @@ Quando a busca de tarifas está ligada, uma tarifa vira alerta quando está
 abaixo de `limite_milhas` ou abaixo de `média × (1 − queda_percentual_promocao/100)`,
 onde a média é das tarifas da mesma rota coletadas nos 14 dias anteriores.
 
+Nos dias sem nada novo o agente manda só "Sem novas mensagens", para
+confirmar que rodou.
+
 Um post não é alertado duas vezes (a chave é o link). Uma tarifa não se
 repete se já existe no histórico um alerta enviado com a mesma rota, data de
 viagem e milhas. Se o envio ao Telegram falhar, o item fica com `alerta_enviado=false`

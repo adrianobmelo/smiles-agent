@@ -53,6 +53,7 @@ HEADERS = {
 }
 
 MSG_TUDO_FALHOU = "Smiles Agent: todas as fontes falharam hoje."
+MSG_SEM_NOVIDADES = "Sem novas mensagens"
 
 log = logging.getLogger("smiles_agent")
 
@@ -570,6 +571,9 @@ def run(session=None, hoje=None, enviar=send_message):
         enviado = notificar(montar_mensagem(novos, hoje))
         if enviado:
             resumo["alertas_enviados"] = len(novos)
+    else:
+        # Confirma que o agente rodou mesmo quando não há nada novo.
+        notificar(MSG_SEM_NOVIDADES)
 
     # 10
     for c in novos:

@@ -199,9 +199,9 @@ def test_fluxo_completo_e_sem_repeticao(ambiente):
     assert any(h["tipo"] == "tarifa" and h["rota"] == "GRU-LIS" and not h["alerta_enviado"] for h in dados)
     assert sum(1 for h in dados if h["alerta_enviado"]) == 5
 
-    # Mesmo cenário no dia seguinte: nada novo, nada enviado.
+    # Mesmo cenário no dia seguinte: nada novo, só o aviso de que rodou.
     agent.run(FakeSession(milhas={"GRU-REC": 12000, "GRU-LIS": 80000}), HOJE, enviar)
-    assert len(enviados) == 1
+    assert enviados[1:] == [agent.MSG_SEM_NOVIDADES]
 
 
 def test_queda_percentual(ambiente):
