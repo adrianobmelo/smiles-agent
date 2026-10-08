@@ -310,5 +310,70 @@
     "publicado": "2026-10-07",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Prorrogado: Assine o Clube Smiles 2.000 anual e ganhe 15 mil milhas na hora",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-08T14:24:55-03:00",
+    "milhas": 15000,
+    "link": "https://passageirodeprimeira.com/prorrogado-assine-o-clube-smiles-2-000-anual-e-ganhe-15-mil-milhas-na-hora/",
+    "publicado": "2026-10-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Muito bom! Voe para Londres com a TAP a partir de 95 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-08T14:24:55-03:00",
+    "milhas": 95000,
+    "link": "https://passageirodeprimeira.com/muito-bom-voe-para-londres-com-a-tap-a-partir-de-95-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 80% de bônus nas transferências de pontos do Banestes",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-08T14:24:55-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-80-de-bonus-nas-transferencias-de-pontos-do-banestes/",
+    "publicado": "2026-10-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Hora de viajar! Trecho para Buenos Aires a partir de 32 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-08T14:24:55-03:00",
+    "milhas": 32000,
+    "link": "https://passageirodeprimeira.com/trecho-para-buenos-aires-a-partir-de-32-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-07",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 voos em Executiva saindo do Brasil a partir de 66 mil milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-08T14:24:55-03:00",
+    "milhas": 66000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-em-classe-executiva-a-partir-de-66-mil-milhas-smiles-3-2/",
+    "publicado": "2026-10-07",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
