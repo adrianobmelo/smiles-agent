@@ -375,5 +375,57 @@
     "publicado": "2026-10-07",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Voe para a Cidade do Cabo a partir de 70 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-09T13:59:59-03:00",
+    "milhas": 70000,
+    "link": "https://passageirodeprimeira.com/voe-para-a-cidade-do-cabo-a-partir-de-70-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-09",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 70% de bônus nas transferências de pontos do Banco do Nordeste",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-09T13:59:59-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-70-bonus-transferencias-pontos-banco-do-nordeste/",
+    "publicado": "2026-10-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 375% de bônus na compra de milhas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-09T13:59:59-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-375-de-bonus-na-compra-de-milhas-4/",
+    "publicado": "2026-10-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Confira as datas disponíveis! Miami a partir de 52 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-09T13:59:59-03:00",
+    "milhas": 52000,
+    "link": "https://passageirodeprimeira.com/confira-as-datas-disponiveis-miami-a-partir-de-52-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
