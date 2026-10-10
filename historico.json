@@ -427,5 +427,31 @@
     "publicado": "2026-10-08",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos partir de 10.600 milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-10T12:52:56-03:00",
+    "milhas": 10600,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-partir-de-10-600-milhas-smiles-2/",
+    "publicado": "2026-10-10",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 70% de bônus nas transferências de pontos do Uau CAIXA",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-10T12:52:56-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-70-de-bonus-nas-transferencias-de-pontos-do-uau-caixa-3/",
+    "publicado": "2026-10-09",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
