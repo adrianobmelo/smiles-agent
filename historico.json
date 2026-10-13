@@ -453,5 +453,18 @@
     "publicado": "2026-10-09",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Barato! Voe para Miami a partir de 49 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-13T14:36:03-03:00",
+    "milhas": 49000,
+    "link": "https://passageirodeprimeira.com/barato-voe-miami-a-partir-49-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-13",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
