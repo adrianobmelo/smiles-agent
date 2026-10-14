@@ -466,5 +466,18 @@
     "publicado": "2026-10-13",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Shopping Smiles oferece até 26 milhas por real gasto em diferentes parceiros",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-14T12:09:29-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/shopping-smiles-oferece-ate-26-milhas-por-real-gasto-em-diferentes-parceiros/",
+    "publicado": "2026-10-14",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
