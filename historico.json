@@ -479,5 +479,57 @@
     "publicado": "2026-10-14",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos em Classe Executiva a partir de 65 mil milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-15T12:01:45-03:00",
+    "milhas": 65000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-em-classe-executiva-a-partir-de-65-mil-milhas-smiles/",
+    "publicado": "2026-10-15",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles anuncia parceria com a Civitatis com acúmulo de 3 milhas por real gasto",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-15T12:01:45-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-anuncia-parceria-com-a-civitatis-com-acumulo-de-3-milhas-por-real-gasto/",
+    "publicado": "2026-10-15",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Como se tornar e quais são os benefícios das categorias Diamante e Magno na Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-15T12:01:45-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/como-se-tornar-e-quais-sao-os-beneficios-da-categoria-diamante-na-smiles/",
+    "publicado": "2026-10-15",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 15% de desconto em passagens da American Airlines",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-15T12:01:45-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-15-de-desconto-em-passagens-da-american-airlines/",
+    "publicado": "2026-10-14",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
