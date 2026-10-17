@@ -531,5 +531,70 @@
     "publicado": "2026-10-14",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos partir de 10.600 milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-17T10:43:41-03:00",
+    "milhas": 10600,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-partir-de-10-600-milhas-smiles-3/",
+    "publicado": "2026-10-17",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Peça o seu cartão GOL Smiles e ganhe até 55 mil milhas bônus",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30 de novembro",
+    "data_coleta": "2026-10-17T10:43:41-03:00",
+    "milhas": 55000,
+    "link": "https://passageirodeprimeira.com/peca-o-seu-cartao-gol-smiles-e-ganhe-ate-55-mil-milhas-bonus/",
+    "publicado": "2026-10-16",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos internacionais a partir de 25 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-17T10:43:41-03:00",
+    "milhas": 25000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-internacionais-a-partir-de-25-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-16",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 315% de bônus na compra de milhas para assinantes do Clube",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-17T10:43:41-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-315-de-bonus-na-compra-de-milhas-para-assinantes-do-clube-3/",
+    "publicado": "2026-10-16",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Muito bom! Trechos para Nova York a partir de 61 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-17T10:43:41-03:00",
+    "milhas": 61000,
+    "link": "https://passageirodeprimeira.com/muito-bom-trechos-para-nova-york-a-partir-de-61-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-16",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
