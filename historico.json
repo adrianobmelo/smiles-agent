@@ -596,5 +596,18 @@
     "publicado": "2026-10-16",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 70% de bônus nas transferências de pontos do Itaú",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-19T13:58:54-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-70-de-bonus-nas-transferencias-de-pontos-do-itau/",
+    "publicado": "2026-10-19",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
