@@ -609,5 +609,31 @@
     "publicado": "2026-10-19",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Até amanhã: Assine o Clube Smiles 1.000 anual e ganhe 15 mil milhas na hora",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "20/10/2026",
+    "data_coleta": "2026-10-20T12:06:37-03:00",
+    "milhas": 15000,
+    "link": "https://passageirodeprimeira.com/ate-amanha-assine-o-clube-smiles-1-000-anual-e-ganhe-15-mil-milhas-na-hora/",
+    "publicado": "2026-10-19",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos internacionais a partir de 37 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-20T12:06:37-03:00",
+    "milhas": 37000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-internacionais-a-partir-de-37-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-19",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
