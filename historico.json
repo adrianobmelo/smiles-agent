@@ -674,5 +674,70 @@
     "publicado": "2026-10-21",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Prorrogado! Smiles oferece até 70% de bônus nas transferências de pontos dos cartões de crédito",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "23/10/2026",
+    "data_coleta": "2026-10-23T12:04:40-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/prorrogado-smiles-oferece-ate-70-de-bonus-nas-transferencias-de-pontos-dos-cartoes-de-credito-2/",
+    "publicado": "2026-10-23",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Executiva para Orlando a partir de R$ 2.488 ou 157 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-23T12:04:40-03:00",
+    "milhas": 157000,
+    "link": "https://passageirodeprimeira.com/executiva-para-orlando-a-partir-r-2-488-ou-157-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-22",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Receba até 45 mil milhas Smiles ao abrir sua conta Nomad e realizar uma conversão",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30 de novembro",
+    "data_coleta": "2026-10-23T12:04:40-03:00",
+    "milhas": 45000,
+    "link": "https://passageirodeprimeira.com/receba-ate-45-mil-milhas-smiles-ao-abrir-sua-conta-nomad-e-realizar-uma-conversao/",
+    "publicado": "2026-10-22",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 70% de bônus nas transferências de pontos do BB Empresas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-23T12:04:40-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-70-de-bonus-nas-transferencias-de-pontos-do-bb-empresas-4/",
+    "publicado": "2026-10-22",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos em Classe Executiva a partir de 20 mil milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-23T12:04:40-03:00",
+    "milhas": 20000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-em-classe-executiva-a-partir-de-20-mil-milhas-smiles-3/",
+    "publicado": "2026-10-22",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
