@@ -739,5 +739,57 @@
     "publicado": "2026-10-22",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 250% de bônus na compra de milhas para assinantes do Clube",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-24T11:00:54-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-250-de-bonus-na-compra-de-milhas-para-assinantes-do-clube-3/",
+    "publicado": "2026-10-24",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos partir de 8.700 milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-24T11:00:54-03:00",
+    "milhas": 8700,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-partir-de-8-700-milhas-smiles/",
+    "publicado": "2026-10-24",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Classe Executiva para a Cidade do Cabo a partir de R$ 2.709 ou 171 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "23/10/2026",
+    "data_coleta": "2026-10-24T11:00:54-03:00",
+    "milhas": 171000,
+    "link": "https://passageirodeprimeira.com/classe-executiva-para-a-cidade-do-cabo-a-partir-de-r-2-709-ou-171-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-23",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles passa a permitir multiplicação de milhas já creditadas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-24T11:00:54-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-passa-a-permitir-multiplicacao-de-milhas-ja-creditadas/",
+    "publicado": "2026-10-23",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
