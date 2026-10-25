@@ -791,5 +791,18 @@
     "publicado": "2026-10-23",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Emita um trecho para Buenos Aires com até 45 mil milhas Smiles na primeira conversão ao abrir uma conta na Nomad",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30 de novembro",
+    "data_coleta": "2026-10-25T11:23:20-03:00",
+    "milhas": 45000,
+    "link": "https://passageirodeprimeira.com/emita-um-trecho-para-buenos-aires-com-ate-45-mil-milhas-smiles-na-primeira-conversao-ao-abrir-uma-conta-na-nomad/",
+    "publicado": "2026-10-25",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
