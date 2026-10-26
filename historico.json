@@ -804,5 +804,31 @@
     "publicado": "2026-10-25",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Ganhe 15 mil milhas na hora assinando o Clube Smiles 2.000",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-26T13:47:43-03:00",
+    "milhas": 15000,
+    "link": "https://passageirodeprimeira.com/__trashed-11/",
+    "publicado": "2026-10-26",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Pré Black Friday! Envie milhas Smiles para o ALL Accor com até 25% de bônus",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "29 de outubro",
+    "data_coleta": "2026-10-26T13:47:43-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/pre-black-friday-envie-milhas-smiles-para-o-all-accor-com-ate-25-de-bonus/",
+    "publicado": "2026-10-26",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
