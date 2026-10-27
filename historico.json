@@ -830,5 +830,44 @@
     "publicado": "2026-10-26",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Gere o euro a partir de R$ 3,86 ao transferir milhas Smiles para o ALL Accor",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-27T12:53:17-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/gere-o-euro-a-partir-de-r-386-ao-transferir-milhas-smiles-para-o-all-accor/",
+    "publicado": "2026-10-27",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Transfira pontos Premmia para a Smiles com 100% de bônus – CPM a partir de R$ 16,09",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-27T12:53:17-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/transfira-pontos-premmia-para-a-smiles-com-100-de-bonus-cpm-a-partir-de-r-1609/",
+    "publicado": "2026-10-26",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Ganhe 15 mil milhas na hora assinando o Clube Smiles 2.000",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-27T12:53:17-03:00",
+    "milhas": 15000,
+    "link": "https://passageirodeprimeira.com/ganhe-15-mil-milhas-na-hora-assinando-o-clube-smiles/",
+    "publicado": "2026-10-26",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
