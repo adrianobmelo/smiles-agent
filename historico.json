@@ -869,5 +869,31 @@
     "publicado": "2026-10-26",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Ganhe milhas suficientes para emitir um voo para Balneário Camboriú assinando o Clube Smiles 2.000",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-28T13:38:17-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/ganhe-milhas-suficientes-para-emitir-um-voo-para-balneario-camboriu-assinando-o-clube-smiles-2-000/",
+    "publicado": "2026-10-28",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos internacionais a partir de 28 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-28T13:38:17-03:00",
+    "milhas": 28000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-internacionais-a-partir-de-28-mil-milhas-smiles-taxas-2/",
+    "publicado": "2026-10-27",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
