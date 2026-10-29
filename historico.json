@@ -895,5 +895,57 @@
     "publicado": "2026-10-27",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Oferta de adesão ao cartão GOL Smiles oferece milhas suficientes para emitir um voo para Buenos Aires",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30 de novembro",
+    "data_coleta": "2026-10-29T13:55:57-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/oferta-de-adesao-ao-cartao-gol-smiles-oferece-milhas-suficientes-para-emitir-um-voo-para-buenos-aires/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Gere o euro a partir de R$ 3,78 ao transferir milhas Smiles para o ALL Accor",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "29/10/2026",
+    "data_coleta": "2026-10-29T13:55:57-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/gere-o-euro-a-partir-de-r-378-ao-transferir-milhas-smiles-para-o-all-accor/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Transfira pontos Esfera para a Smiles usando pontos + dinheiro – milheiro Smiles a partir de R$ 15,75",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-29T13:55:57-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/transfira-pontos-esfera-para-smiles-usando-pontos-dinheiro-milheiro-smiles-a-partir-r-1575/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece até 70% de bônus nas transferências de pontos dos cartões de crédito",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-29T13:55:57-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-oferece-ate-70-de-bonus-nas-transferencias-de-pontos-dos-cartoes-de-credito-6/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
