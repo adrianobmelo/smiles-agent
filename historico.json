@@ -947,5 +947,83 @@
     "publicado": "2026-10-29",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Ganhe 21 mil milhas em 1 ano com o Clube Smiles 1.000",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-30T13:42:06-03:00",
+    "milhas": 21000,
+    "link": "https://passageirodeprimeira.com/ganhe-21-mil-milhas-em-1-ano-com-o-clube-smiles-1-000/",
+    "publicado": "2026-10-30",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Até 23h! Smiles oferece até 15% de desconto em passagens internacionais",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-30T13:42:06-03:00",
+    "milhas": 82800,
+    "link": "https://passageirodeprimeira.com/ate-23h-smiles-oferece-ate-15-de-desconto-em-passagens-internacionais/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Voe para Nova York a partir de 61 mil milhas Smiles ou R$ 976 + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-30T13:42:06-03:00",
+    "milhas": 61000,
+    "link": "https://passageirodeprimeira.com/muito-barato-voe-para-nova-york-a-partir-de-61-mil-milhas-smiles-ou-r-976-taxas/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles oferece o dobro de milhas em voos da GOL",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "4 de novembro",
+    "data_coleta": "2026-10-30T13:42:06-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/ganhe-o-dobro-voe-com-gol-receba-100-mais-milhas-smiles/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Últimas horas para enviar milhas Smiles para o ALL Accor com até 25% de bônus",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "29/10/2026",
+    "data_coleta": "2026-10-30T13:42:06-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/ultimas-horas-para-enviar-milhas-smiles-para-o-all-accor-com-ate-25-de-bonus/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Voe para Joanesburgo a partir de R$ 1.296 ou 82 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30/10/2026",
+    "data_coleta": "2026-10-30T13:42:06-03:00",
+    "milhas": 82000,
+    "link": "https://passageirodeprimeira.com/voe-para-joanesburgo-a-partir-de-r-1-296-ou-82-mil-milhas-smiles-taxas/",
+    "publicado": "2026-10-29",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
