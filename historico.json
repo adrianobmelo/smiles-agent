@@ -1025,5 +1025,31 @@
     "publicado": "2026-10-29",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos partir de 12.900 milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-31T12:44:49-03:00",
+    "milhas": 12900,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-partir-de-12-900-milhas-smiles/",
+    "publicado": "2026-10-31",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Trecho para Miami a partir de 68 mil milhas Smiles ou R$ 1.078 + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-10-31T12:44:49-03:00",
+    "milhas": 68000,
+    "link": "https://passageirodeprimeira.com/trecho-para-miami-a-partir-de-68-mil-milhas-smiles-ou-r-1-078-taxas/",
+    "publicado": "2026-10-30",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
