@@ -1064,5 +1064,18 @@
     "publicado": "2026-11-03",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Ganhe 10 mil milhas bônus assinando o Clube Smiles 1.000 – Milheiro a partir de R$ 15,52",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-04T14:59:08-03:00",
+    "milhas": 10000,
+    "link": "https://passageirodeprimeira.com/ganhe-10-mil-milhas-bonus-assinando-o-clube-smiles-1-000-milheiro-a-partir-de-r-1552/",
+    "publicado": "2026-11-04",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
