@@ -1077,5 +1077,31 @@
     "publicado": "2026-11-04",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles tem voos nacionais a partir de 6 mil milhas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-05T15:01:34-03:00",
+    "milhas": 6000,
+    "link": "https://passageirodeprimeira.com/smiles-tem-voos-nacionais-a-partir-de-6-mil-milhas/",
+    "publicado": "2026-11-05",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles e Livelo lançam ferramenta que simplifica a transferência de pontos",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-05T15:01:34-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/smiles-e-livelo-lancam-ferramenta-que-simplifica-a-transferencia-de-pontos/",
+    "publicado": "2026-11-05",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
