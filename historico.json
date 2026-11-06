@@ -1103,5 +1103,18 @@
     "publicado": "2026-11-05",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Gere o milheiro a partir R$ 15,52 assinando o Clube Smiles 1.000",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-06T14:30:00-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/gere-o-milheiro-a-partir-r-1552-assinando-o-clube-smiles-1-000/",
+    "publicado": "2026-11-06",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
