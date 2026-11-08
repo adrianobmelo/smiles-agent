@@ -1116,5 +1116,44 @@
     "publicado": "2026-11-06",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles tem voos nacionais a partir de 8 mil milhas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-08T13:40:33-03:00",
+    "milhas": 8000,
+    "link": "https://passageirodeprimeira.com/smiles-tem-voos-nacionais-a-partir-de-8-mil-milhas/",
+    "publicado": "2026-11-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Ainda não faz parte? Assine o Clube Smiles e ganhe 11 mil milhas na hora",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-08T13:40:33-03:00",
+    "milhas": 11000,
+    "link": "https://passageirodeprimeira.com/ainda-nao-faz-parte-assine-o-clube-smiles-e-ganhe-11-mil-milhas-na-hora/",
+    "publicado": "2026-11-08",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Segue valendo! Ganhe até 55 mil milhas bônus solicitando o cartão GOL Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30 de novembro",
+    "data_coleta": "2026-11-08T13:40:33-03:00",
+    "milhas": 55000,
+    "link": "https://passageirodeprimeira.com/segue-valendo-ganhe-ate-55-mil-milhas-bonus-solicitando-o-cartao-gol-smiles/",
+    "publicado": "2026-11-07",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
