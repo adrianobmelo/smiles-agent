@@ -1155,5 +1155,18 @@
     "publicado": "2026-11-07",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Voe para Nova York a partir de 61 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-09T17:44:54-03:00",
+    "milhas": 61000,
+    "link": "https://passageirodeprimeira.com/voe-nova-york-a-partir-61-mil-milhas-smiles-taxas/",
+    "publicado": "2026-11-09",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
