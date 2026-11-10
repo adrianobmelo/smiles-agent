@@ -1168,5 +1168,31 @@
     "publicado": "2026-11-09",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Trecho para Miami a partir de 68 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-10T14:50:49-03:00",
+    "milhas": 68000,
+    "link": "https://passageirodeprimeira.com/trecho-miami-a-partir-68-mil-milhas-smiles-taxas/",
+    "publicado": "2026-11-10",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Novidade: Smiles lança multiplicador de milhas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-10T14:50:49-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/novidade-smiles-lanca-multiplicador-de-milhas/",
+    "publicado": "2026-11-09",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
