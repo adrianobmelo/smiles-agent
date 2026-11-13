@@ -1207,5 +1207,18 @@
     "publicado": "2026-11-11",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Nova York chamando: trecho a partir 71 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-13T14:45:41-03:00",
+    "milhas": 71000,
+    "link": "https://passageirodeprimeira.com/nova-york-chamando-trecho-a-partir-71-mil-milhas-smiles-taxas/",
+    "publicado": "2026-11-12",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
