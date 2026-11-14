@@ -1220,5 +1220,18 @@
     "publicado": "2026-11-12",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos a partir de 8.100 milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-14T13:36:39-03:00",
+    "milhas": 8100,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-a-partir-de-8-100-milhas-smiles/",
+    "publicado": "2026-11-14",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
