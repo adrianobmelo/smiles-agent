@@ -1246,5 +1246,31 @@
     "publicado": "2026-11-17",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Gere o milheiro Smiles a partir de R$ 15,80 transferindo pontos Livelo + dinheiro",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-18T15:51:19-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/gere-o-milheiro-smiles-a-partir-de-r-1580-transferindo-pontos-livelo-dinheiro/",
+    "publicado": "2026-11-18",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Prorrogado! Smiles oferece até 80% de bônus nas transferências de pontos dos cartões de crédito",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-18T15:51:19-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/prorrogado-smiles-oferece-ate-80-de-bonus-nas-transferencias-de-pontos-dos-cartoes-de-credito-4/",
+    "publicado": "2026-11-18",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
