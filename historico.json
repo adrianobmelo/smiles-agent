@@ -1272,5 +1272,31 @@
     "publicado": "2026-11-18",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Outra chance! Smiles oferece até 80% de bônus nas transferências de pontos dos bancos",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-19T15:59:15-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/outra-chance-smiles-oferece-ate-80-de-bonus-nas-transferencias-de-pontos-dos-bancos/",
+    "publicado": "2026-11-19",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos em Classe Executiva a partir de 44 mil milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-19T15:59:15-03:00",
+    "milhas": 44000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-de-voos-em-classe-executiva-a-partir-de-44-mil-milhas-smiles/",
+    "publicado": "2026-11-18",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
