@@ -1298,5 +1298,31 @@
     "publicado": "2026-11-18",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles tem voos a partir de 5 mil milhas ou R$ 92 + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-20T15:37:08-03:00",
+    "milhas": 5000,
+    "link": "https://passageirodeprimeira.com/smiles-tem-voos-a-partir-de-5-mil-milhas-ou-r-92-taxas/",
+    "publicado": "2026-11-19",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Confira a oportunidade de gerar o milheiro Smiles a partir de R$ 15,91",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-20T15:37:08-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/confira-a-oportunidade-de-gerar-o-milheiro-smiles-a-partir-de-r-1591/",
+    "publicado": "2026-11-19",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
