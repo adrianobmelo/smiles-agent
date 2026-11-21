@@ -1324,5 +1324,31 @@
     "publicado": "2026-11-19",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Confira passagens nacionais a partir de 7.500 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-21T14:32:54-03:00",
+    "milhas": 500000,
+    "link": "https://passageirodeprimeira.com/confira-passagens-nacionais-a-partir-7-500-mil-milhas-smiles-taxas/",
+    "publicado": "2026-11-21",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Gere o milheiro Smiles a partir de R$ 13,07 assinando o Clube Smiles 1.000",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30 de novembro",
+    "data_coleta": "2026-11-21T14:32:54-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/gere-o-milheiro-smiles-a-partir-de-r-1307-assinando-o-clube-smiles-1-000/",
+    "publicado": "2026-11-21",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
