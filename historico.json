@@ -1350,5 +1350,18 @@
     "publicado": "2026-11-21",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Ótimo preço! Voe para Nova York a partir de 66 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-23T19:03:06-03:00",
+    "milhas": 66000,
+    "link": "https://passageirodeprimeira.com/otimo-preco-voe-para-nova-york-a-partir-66-mil-milhas-smiles-taxas/",
+    "publicado": "2026-11-23",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
