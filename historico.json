@@ -1363,5 +1363,31 @@
     "publicado": "2026-11-23",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "5 sugestões de voos internacionais a partir de 22 mil milhas Smiles + taxas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-24T17:39:46-03:00",
+    "milhas": 22000,
+    "link": "https://passageirodeprimeira.com/5-sugestoes-voos-internacionais-a-partir-22-mil-milhas-smiles-taxas/",
+    "publicado": "2026-11-24",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "GOL vai sortear viagens nacionais, internacionais e 300 mil milhas Smiles",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30 de dezembro",
+    "data_coleta": "2026-11-24T17:39:46-03:00",
+    "milhas": 300000,
+    "link": "https://passageirodeprimeira.com/gol-vai-sortear-viagens-nacionais-internacionais-e-300-mil-milhas-smiles/",
+    "publicado": "2026-11-24",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
