@@ -1389,5 +1389,18 @@
     "publicado": "2026-11-24",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Smiles tem voos nacionais a partir de 6 mil milhas",
+    "rota": null,
+    "data_viagem": null,
+    "validade": null,
+    "data_coleta": "2026-11-25T16:56:44-03:00",
+    "milhas": 6000,
+    "link": "https://passageirodeprimeira.com/smiles-tem-voos-nacionais-a-partir-de-6-mil-milhas-2/",
+    "publicado": "2026-11-25",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
