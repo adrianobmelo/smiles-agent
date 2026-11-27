@@ -1402,5 +1402,18 @@
     "publicado": "2026-11-25",
     "motivo_alerta": "promoção divulgada",
     "alerta_enviado": true
+  },
+  {
+    "tipo": "oficial",
+    "titulo": "Orange Friday Smiles: confira as principais ofertas de milhas, passagens e bônus",
+    "rota": null,
+    "data_viagem": null,
+    "validade": "30/11",
+    "data_coleta": "2026-11-27T16:28:39-03:00",
+    "milhas": null,
+    "link": "https://passageirodeprimeira.com/orange-friday-smiles-confira-as-principais-ofertas-de-milhas-passagens-e-bonus/",
+    "publicado": "2026-11-27",
+    "motivo_alerta": "promoção divulgada",
+    "alerta_enviado": true
   }
 ]
